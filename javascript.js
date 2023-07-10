@@ -33,34 +33,53 @@ closeButtons.forEach((el) => {
     });
 })
 
-const questions = [
+const questions1 = [
     { question: "Question 1", answer: "Answer 1" },
     { question: "Question 2", answer: "Answer 2" },
     { question: "Question 3", answer: "Answer 3" },
     { question: "Question 4", answer: "Answer 4" },
     { question: "Question 5", answer: "Answer 5" },
+];
 
+    const questions2 = [
     { question: "Question 1", answer: "Answer 1" },
     { question: "Question 2", answer: "Answer 2" },
     { question: "Question 3", answer: "Answer 3" },
     { question: "Question 4", answer: "Answer 4" },
     { question: "Question 5", answer: "Answer 5" },
+];
 
+    const questions3 = [
     { question: "Question 1", answer: "Answer 1" },
     { question: "Question 2", answer: "Answer 2" },
     { question: "Question 3", answer: "Answer 3" },
     { question: "Question 4", answer: "Answer 4" },
     { question: "Question 5", answer: "Answer 5" },
+];
 
+    const questions4 = [
     { question: "Question 1", answer: "Answer 1" },
     { question: "Question 2", answer: "Answer 2" },
     { question: "Question 3", answer: "Answer 3" },
     { question: "Question 4", answer: "Answer 4" },
     { question: "Question 5", answer: "Answer 5" },
+];
 
+    const questions5 = [
     { question: "Question 1", answer: "Answer 1" },
     { question: "Question 2", answer: "Answer 2" },
     { question: "Question 3", answer: "Answer 3" },
     { question: "Question 4", answer: "Answer 4" },
     { question: "Question 5", answer: "Answer 5" },
   ];
+
+
+let dialogheader = document.getElementById("dialogHeader")
+console.log(questions1)  
+
+// for(i = 0; i < questions1.length; i++){
+    
+// }
+
+console.log(questions2)
+let answerButtons = document.querySelectorAll("answer")
