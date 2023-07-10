@@ -130,17 +130,17 @@ button:hover{
     background-color: red;
 }
 
-.options{
+.answerOptions{
     display: flex;
     width: 600px;
     margin: 10px;   
 }
 
-.toggle h2{
+.dialogOpen h2{
     text-align: center;
     font-size: 60px;
 }
 
-.options button{
+.answerOptions button{
     margin: 5px;
 }
