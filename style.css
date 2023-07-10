@@ -102,7 +102,7 @@ a{
     border-radius: 10px;
 }
 
-.questions{
+.points{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     background-color: grey;

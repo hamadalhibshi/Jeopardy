@@ -1,13 +1,11 @@
 const points = [100, 200, 300, 400, 500];
+const cat1 = $(".cat1qs");
+const cat2 = $(".cat2qs");
+const cat3 = $(".cat3qs");
+const cat4 = $(".cat4qs");
+const cat5 = $(".cat5qs");
 
 points.forEach((el) => {
-    console.log(el);
-
-    const cat1 = $(".cat1qs");
-    const cat2 = $(".cat2qs");
-    const cat3 = $(".cat3qs");
-    const cat4 = $(".cat4qs");
-    const cat5 = $(".cat5qs");
 
     cat1.append(`<button class="questionsButton">${el}</button>`);
     cat2.append(`<button class="questionsButton">${el}</button>`);
@@ -17,25 +15,50 @@ points.forEach((el) => {
 
 });
 
-const openButtons = document.querySelectorAll(".questionsButton");
-const closeButtons = document.querySelectorAll(".answerOptions");
+const questionsButtons = document.querySelectorAll(".questionsButton");
+const answerOptions = document.querySelectorAll(".answerOptions");
 const dialog = document.querySelector(".dialogOpen");
 
-openButtons.forEach((el) => {
+questionsButtons.forEach((el) => {
     el.addEventListener("click", () => {
-        // TODO Find which category and value was clicked
-        
-        // `Get rid of the loop
-    questions1.forEach(el => {
-        const closeButton = document.createElement("h2")
-        closeButton.innerText = el.question;
-        dialogheader.append(closeButton);
-    });
+
+    // TODO Find which category was clicked
+
+        cat1.click(() => {
+            console.log("hi")
+        });
+        cat2.click(() => {
+            console.log("what")
+        }); 
+        cat3.click(() => {
+            console.log("why")
+        });
+        cat4.click(() => {
+            console.log("when")
+        });
+        cat5.click(() => {
+            console.log("where")
+        });
+
+    // Find which value was clicked
+
+        let buttonClickPoints = el.innerText;
+        console.log(buttonClickPoints);
+
+    // `Get rid of the loop
+
+
+    // questions1.forEach(el => {
+    //     const closeButton = document.createElement("h2")
+    //     closeButton.innerText = el.question;
+    //     dialogheader.append(closeButton);
+    // });
+
         dialog.show();
     });
 })
 
-closeButtons.forEach((el) => {
+answerOptions.forEach((el) => {
     el.addEventListener("click", () => {
         dialog.close();
     });
@@ -81,5 +104,5 @@ const questions5 = [
     { question: "Question 5", answer: "Answer 5" },
 ];
 
-let dialogheader = document.getElementById("dialogHeader")
-let answerButtons = document.querySelectorAll("answer")
+// let dialogheader = document.getElementById("dialogHeader")
+// let answerButtons = document.querySelectorAll("answer")
