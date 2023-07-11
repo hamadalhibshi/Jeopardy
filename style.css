@@ -132,7 +132,7 @@ button:hover{
 
 .answerOptions{
     display: flex;
-    width: 600px;
+    width: 100%;
     margin: 10px;   
 }
 
