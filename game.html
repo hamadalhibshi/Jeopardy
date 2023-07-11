@@ -10,23 +10,36 @@
 </head>
 <body>
 
-    <div class="gameHeader">
-        <p class="player1">Player 1:</p>
+    <div class='gameHeader'>
+        <p class='player1'>Player 1:</p>
         <h1>Jeopardy!</h1>
-        <p class="player2">Player 2:</p>
+        <p class='player2'>Player 2:</p>
     </div>
 
-        <dialog class= "dialogOpen">
-            <h2 id="dialogHeader"></h2>
-            <div class = "answerOptions">
-                <button class="answer"></button>
-                <button class="answer"></button>
-                <button class="answer"></button>
-                <button class="answer"></button>
+        <dialog class= 'dialogOpen'>
+            <h2 id='dialogHeader'></h2>
+                <div class = 'answerOptions'>
+                <button class='answer1' id = '1'></button>
+                <button class='answer2' id = '2'></button>
+                <button class='answer3' id ='3'></button>
             </div>
         </dialog>
 
-        <div class="catContainer">
+        <dialog class= 'dialogCorrect'>
+            <h2 id='dialogHeaderCorrect'>Correct!</h2>
+                <div class = 'correctAnswer'>
+                <button class ='closeButton1'>Continue...</button>
+                </div>
+        </dialog>
+
+        <dialog class= 'dialogWrong'>
+            <h2 id='dialogHeaderWrong'>Wrong! Get better!</h2>
+                <div class = 'wrongAnswer'>
+                <button class ='closeButton2'>Continue...</button>
+                </div>
+        </dialog>
+
+        <div class='catContainer'>
             <p>Funny</p>
             <p>culture</p>
             <p>whatever</p>
@@ -34,16 +47,16 @@
             <p>idk</p>
         </div>
 
-        <div class = "points">
-            <div class = "cat1qs"></div>
-            <div class = "cat2qs"></div>
-            <div class = "cat3qs"></div>
-            <div class = "cat4qs"></div>
-            <div class = "cat5qs"></div>
+        <div class = 'points'>
+            <div class = 'cat1qs category'></div>
+            <div class = 'cat2qs category'></div>
+            <div class = 'cat3qs category'></div>
+            <div class = 'cat4qs category'></div>
+            <div class = 'cat5qs category'></div>
         </div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./javascript.js"></script>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script src='javascript.js'></script>
 </body>
 </html>
