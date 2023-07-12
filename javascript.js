@@ -1,126 +1,90 @@
 const points = [100, 200, 300, 400, 500];
-const cat1 = $('.cat1qs');
-const cat2 = $('.cat2qs');
-const cat3 = $('.cat3qs');
-const cat4 = $('.cat4qs');
-const cat5 = $('.cat5qs');
+const cat1 = $('.cat1');
+const cat2 = $('.cat2');
+const cat3 = $('.cat3');
+const cat4 = $('.cat4');
+const cat5 = $('.cat5');
 
-
-points.forEach((el) => {
-    cat1.append(`<button class='questionsButton' id ='0'>${el}</button>`);
-    cat2.append(`<button class='questionsButton' id ='1'>${el}</button>`);
-    cat3.append(`<button class='questionsButton' id ='2'>${el}</button>`);
-    cat4.append(`<button class='questionsButton' id ='3'>${el}</button>`);
-    cat5.append(`<button class='questionsButton' id ='4'>${el}</button>`);
+points.forEach((el, index) => {
+    console.log(index)
+    cat1.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
+    cat2.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
+    cat3.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
+    cat4.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
+    cat5.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
 });
 
-const questionsButtons = document.querySelectorAll(".questionsButton");
-const answerOptions = document.querySelectorAll(".answerOptions");
-const dialog = document.querySelector(".dialogOpen");
+const questionsButtons = $(".questionsButton");
+const answerOptions = $(".answerOptions");
+const dialog = $(".dialogOpen");
 
 let elPoints
 let randomInt
-let catIndex
 let minInt = 0
 let maxInt = 4
+let categoryId
 
-function questionsLength() {
-    return getCategory[catIndex].questions.length
+function questionsLength(index) {
+    return getCategory[index].questions.length;
 }
 
 // Random Int Generator
 function getRandomInt(minInt, maxInt) {
-        minInt = Math.ceil(minInt);
-        maxInt = Math.floor(maxInt);
-        return Math.floor(Math.random() * (maxInt - minInt)) + minInt;
-    }
+    minInt = Math.ceil(minInt);
+    maxInt = Math.floor(maxInt);
+    return Math.floor(Math.random() * (maxInt - minInt)) + minInt;
+}
 
 
-questionsButtons.forEach((el) => {
-    el.addEventListener('click', (e) => {
+questionsButtons.each((index, el) => {
+    // console.log(el)
+    $(this).click((e) => {
 
-        cat1.click(() => {
-            catIndex = 0;
-            maxInt = questionsLength();
-            console.log("MAX-INT:", maxInt);
-            randomInt = getRandomInt(minInt, maxInt);
-            console.log("RANDOM-INT:", randomInt);
+        if (e.target.classList[0] === "questionsButton") {
+            const category = e.target.parentNode;
+            console.log(e.target)
 
-            $('#dialogHeader').text(getCategory[0].questions[randomInt].question);
-            
-            for (let i = 0; i < 3; i++) {
-                $(`.answer${i+1}`).attr('data-questionsAtt',randomInt);
-                $(`.answer${i+1}`).text(getCategory[0].questions[randomInt].answers[i].answer);           
+            elPoints = e.target.innerText
+        
+            if(category.classList.contains("cat1")){
+                categoryId = 0;
+                // $('.questionsDone')
             }
-        });
-
-        cat2.click(() => {
-            catIndex = 1;
-            maxInt = questionsLength();
-            randomInt = getRandomInt(minInt, maxInt);
-
-            $('#dialogHeader').text(getCategory[1].questions[randomInt].question);
-
-            for (let i = 0; i < 3; i++) {
-                $(`.answer${i+1}`).attr('data-questionsAtt',randomInt);
-                $(`.answer${i+1}`).text(getCategory[1].questions[randomInt].answers[i].answer);              
+            if(category.classList.contains("cat2")){
+                categoryId = 1;
             }
-        }); 
-
-        cat3.click(() => {
-            catIndex = 2;
-            maxInt = questionsLength();
-            randomInt = getRandomInt(minInt, maxInt);
-
-            $('#dialogHeader').text(getCategory[2].questions[randomInt].question);
-
-            for (let i = 0; i < 3; i++) {
-                $(`.answer${i+1}`).attr('data-questionsAtt',randomInt);
-                $(`.answer${i+1}`).text(getCategory[2].questions[randomInt].answers[i].answer);              
+            if(category.classList.contains("cat3")){
+                categoryId = 2;
             }
-        });
-
-        cat4.click(() => {
-            catIndex = 3;
-            maxInt = questionsLength();
-            randomInt = getRandomInt(minInt, maxInt);
-
-            $('#dialogHeader').text(getCategory[3].questions[randomInt].question);
-
-            for (let i = 0; i < 3; i++) {
-                $(`.answer${i+1}`).attr('data-questionsAtt',randomInt);
-                $(`.answer${i+1}`).text(getCategory[3].questions[randomInt].answers[i].answer);            
+            if(category.classList.contains("cat4")){
+                categoryId = 3;
             }
-        });
-
-        cat5.click(() => {
-            catIndex = 4;
-            maxInt = questionsLength();
-            randomInt = getRandomInt(minInt, maxInt);
-
-            $('#dialogHeader').text(getCategory[4].questions[randomInt].question);
-
-            for (let i = 0; i < 3; i++) {
-                $(`.answer${i+1}`).attr('data-questionsAtt',randomInt);
-                $(`.answer${i+1}`).text(getCategory[4].questions[randomInt].answers[i].answer);               
+            if(category.classList.contains("cat5")){
+                categoryId = 4;
             }
-        });
-
-    // Find which value was clicked
-
-        elPoints = e.target.innerText;
-        // console.log(elPoints)
-    // `Get rid of the loop
+        
+            maxInt = questionsLength(categoryId);
+            randomInt = getRandomInt(minInt, maxInt);
+    
+            $('#dialogHeader').text(getCategory[categoryId].questions[randomInt].question);
+                
+            for (let i = 0; i < 3; i++) {
+                $(`.answer${i+1}`).attr('data-categoryatt',categoryId);
+                $(`.answer${i+1}`).attr('data-questionsAtt',randomInt);
+                $(`.answer${i+1}`).text(getCategory[categoryId].questions[randomInt].answers[i].answer);           
+            }
         dialog.show();
 
-        return elPoints, randomInt, catIndex, maxInt;
+        }
+        return categoryId, elPoints
+
     });
 })
 
-const dialogCorrect = document.querySelector('.dialogCorrect');
-const dialogWrong = document.querySelector('.dialogWrong');
-const closeButton1 = document.querySelector('.closeButton1');
-const closeButton2 = document.querySelector('.closeButton2');
+const dialogCorrect = $('.dialogCorrect');
+const dialogWrong = $('.dialogWrong');
+const closeButton1 = $('.closeButton1');
+const closeButton2 = $('.closeButton2');
 
 let count = 1;
 let score1 = 0;
@@ -129,88 +93,81 @@ let score2 = 0;
 const score1El = $('.score1');
 const score2El = $('.score2');
 
-answerOptions.forEach((el) => {
-    el.addEventListener('click', (e) => {
-        function removeQuestion() {
-            let updatedCategory = getCategory;
+answerOptions.each(() => {
+    this.addEventListener('click', (e) => {
 
-            updatedCategory[catIndex].questions.splice(randomInt, 1);
-            localStorage.setItem("category", JSON.stringify(updatedCategory));
-
-            console.log(updatedCategory)
-        }
-
-        for (let i = 0; i < getCategory.length; i++) {
-            
-            for (let j = 0; j < getCategory[i].questions.length; j++) {
-
-                for (let k = 0; k < getCategory[i].questions[j].answers.length; k++) { 
-            
-                    const responseId = parseInt(e.target.id);
-                    const questionIndex = parseInt(e.target.dataset.questionsatt);
-                    const isCorrect = getCategory[i].questions[questionIndex].answers[responseId].isCorrect;
-
-                    console.log(`isCorrect ${isCorrect}`);
-                    console.log(`option choice ${responseId}`);
-                    console.log(`questionIndex ${questionIndex}`);
-                    console.log(`category ${i}`);
-
-                    // SCORE
-                    if(isCorrect) {
-                        if(count % 2 === 0){
-                            score2 += parseInt(elPoints);
-                            let score2Str = score2.toString();
-                            console.log(score2Str);
-                            score2El.text(score2Str);
-                        }
-
-                        else {
-                            score1 += parseInt(elPoints);
-                            let score1Str = score1.toString();
-                            console.log(elPoints);
-                            score1El.text(score1Str);
-                        }
-                    }
-                    else {
-                        count++;
-                    }
-
-                    if (isCorrect) {
-                        dialog.close();
-                        dialogCorrect.show();
-
-                        closeButton1.addEventListener('click', () => {
-                            dialogCorrect.close();
-                        })
-
-                        console.log(e.target.innerText);
-                        console.log(true);
-                        removeQuestion();
-
-                        return true;
-                    }
-                    else {
-                        // const returnRightAnswer = document.querySelector(".returnCorrectAnswer")
-                        // returnRightAnswer.innerHTML()
-                        dialog.close();
-                        dialogWrong.show();
-
-                        closeButton2.addEventListener('click', () => {
-                            dialogWrong.close();
-                        });
-
-                        console.log(e.target.innerText);
-                        getCategory[i].questions[j].answers[k].answer;
-                        removeQuestion();
-
-                        console.log(false);
-                        return false;
-                    }
+        if (e.target.classList[0].includes('answer')) {
+            function removeQuestion() {
+                let updatedCategory = getCategory;
+                updatedCategory[categoryId].questions.splice(randomInt, 1);
+                localStorage.setItem("category", JSON.stringify(updatedCategory));
+    
+                console.log(updatedCategory)
+            }
+    
+            console.log(answerOptions)
+    
+            console.log(`categoryId ${categoryId}`);
+            const responseId = parseInt(e.target.id);
+            console.log('responseID',responseId)
+            const questionIndex = parseInt(e.target.dataset.questionsatt);
+            console.log(`questionIndex ${questionIndex}`);
+            const isCorrect = getCategory[categoryId].questions[questionIndex].answers[responseId].isCorrect;
+    
+            console.log(`isCorrect ${isCorrect}`);
+            console.log(`option choice ${responseId}`);
+            console.log(`questionIndex ${questionIndex}`);
+    
+            // SCORE
+            if(isCorrect) {
+                if(count % 2 === 0){
+                    score2 += parseInt(elPoints);
+                    let score2Str = score2.toString();
+                    console.log(score2Str);
+                    score2El.text(score2Str);
+                }
+    
+                else {
+                    score1 += parseInt(elPoints);
+                    let score1Str = score1.toString();
+                    console.log(elPoints);
+                    score1El.text(score1Str);
                 }
             }
+            else {
+                count++;
+            }
+    
+            if (isCorrect) {
+                dialog.hide();
+                dialogCorrect.show();
+    
+                closeButton1.click(() => {
+                    dialogCorrect.hide();
+                })
+    
+                console.log(e.target.innerText);
+                console.log(true);
+                removeQuestion();
+    
+                return true;
+            }
+            else {
+                dialog.hide();
+                dialogWrong.show()
+    
+                closeButton2.click(() => {
+                    dialogWrong.hide();
+                });
+    
+                console.log(e.target.innerText);
+                removeQuestion();
+    
+                console.log(false);
+                return false;
+            }
+    
         }
-        console.log(e.target.innerText);
-
     });
 })
 
