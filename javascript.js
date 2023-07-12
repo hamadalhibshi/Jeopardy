@@ -6,12 +6,11 @@ const cat4 = $('.cat4');
 const cat5 = $('.cat5');
 
 points.forEach((el, index) => {
-    console.log(index)
-    cat1.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
-    cat2.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
-    cat3.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
-    cat4.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
-    cat5.append(`<button data-category=${index} class='questionsButton'>${el}</button>`);
+    cat1.append(`<button id='cat1-${index}' class='questionsButton'>${el}</button>`);
+    cat2.append(`<button id='cat2-${index}' class='questionsButton'>${el}</button>`);
+    cat3.append(`<button id='cat3-${index}' class='questionsButton'>${el}</button>`);
+    cat4.append(`<button id='cat4-${index}' class='questionsButton'>${el}</button>`);
+    cat5.append(`<button id='cat5-${index}' class='questionsButton'>${el}</button>`);
 });
 
 const questionsButtons = $(".questionsButton");
@@ -42,7 +41,11 @@ questionsButtons.each((index, el) => {
 
         if (e.target.classList[0] === "questionsButton") {
             const category = e.target.parentNode;
-            console.log(e.target)
+            console.log(e.target.getAttribute('id'))
+
+            let questionDone = e.target.getAttribute('id')
+
+            $(`#${questionDone}`).attr("class", "questionsDone")
 
             elPoints = e.target.innerText
         
@@ -83,6 +86,7 @@ questionsButtons.each((index, el) => {
 
 const dialogCorrect = $('.dialogCorrect');
 const dialogWrong = $('.dialogWrong');
+const dialogReset = $('.dialogReset')
 const closeButton1 = $('.closeButton1');
 const closeButton2 = $('.closeButton2');
 
@@ -125,6 +129,15 @@ answerOptions.each(() => {
                     let score2Str = score2.toString();
                     console.log(score2Str);
                     score2El.text(score2Str);
+                    if (score2 >= 1000) {
+                        console.log('Player 2 Won')
+                        $('.resetHeader').text('Player 2 won!')
+                        $('.winnerScore').text(`Score: ${score2}`)
+                        dialogReset.show()
+                    }
+                    else {
+                        dialogCorrect.show()
+                    }
                 }
     
                 else {
@@ -132,6 +145,15 @@ answerOptions.each(() => {
                     let score1Str = score1.toString();
                     console.log(elPoints);
                     score1El.text(score1Str);
+                    if (score1 >= 1000) {
+                        console.log('Player 1 Win')
+                        $('.resetHeader').text('Player 1 won!')
+                        $('.winnerScore').text(`Score: ${score1}`)
+                        dialogReset.show()
+                    }
+                    else {
+                        dialogCorrect.show();
+                    }
                 }
             }
             else {
@@ -140,8 +162,6 @@ answerOptions.each(() => {
     
             if (isCorrect) {
                 dialog.hide();
-                dialogCorrect.show();
-    
                 closeButton1.click(() => {
                     dialogCorrect.hide();
                 })
@@ -197,7 +217,7 @@ const category = [
         answers: [{answer: 'Roronoa Zoro', isCorrect: false}, {answer: 'Trafalgar Law', isCorrect: false}, {answer: 'Monkey D. Luffy', isCorrect: true}]},
 
         {question: 'Who is the main protagonist of the anime/manga series "Demon Slayer: Kimetsu no Yaiba"?', 
-        answers: [{answer: 'Tanjiro Kamado)', isCorrect: true}, {answer: 'Zenitsu Agatsuma', isCorrect: false}, {answer: 'Inosuke Hashibira', isCorrect: false}]},
+        answers: [{answer: 'Tanjiro Kamado', isCorrect: true}, {answer: 'Zenitsu Agatsuma', isCorrect: false}, {answer: 'Inosuke Hashibira', isCorrect: false}]},
 
         {question: 'What is the name of the main character in the anime/manga series "Bleach"?', 
         answers: [{answer: 'Izuru Kira', isCorrect: false}, {answer: 'Ichigo Kurosaki', isCorrect: true}, {answer: 'Rukia Kuchiki', isCorrect: false}]},
@@ -259,6 +279,12 @@ const category = [
     ]}
 ]
 
+$('.resetOk').click(() => {
+    localStorage.setItem('category', JSON.stringify(category));
+    location.reload()
+})
+
 localStorage.setItem('category', JSON.stringify(category));
+
 const getCategory = JSON.parse(localStorage.getItem('category'));
 console.log(getCategory);
