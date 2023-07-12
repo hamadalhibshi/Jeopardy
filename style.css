@@ -78,6 +78,7 @@ a{
     text-shadow: 5px 5px black;
     width: 100%;
     gap:20px;
+    height: 180px;
 }
 
 .gameHeader h1{
@@ -124,10 +125,12 @@ button{
     width: 100%;
     margin: 10px auto;
     border-radius: 10px;
+    transition: all 0.3s;
 }
 
 button:hover{
     background-color: red;
+    font-size: 35px;
 }
 
 .answerOptions{
@@ -144,3 +147,25 @@ button:hover{
 .answerOptions button{
     margin: 5px;
 }
+
+#playersTurn{
+    color: red;
+}
+
+/* @media only screen and (max-width: 600px){
+    body{
+        width: 100%;
+    }
+    .catContainer{
+        width: 100%;
+    }
+    .points{
+        width: 100%;
+    }
+    p{
+        font-size:25px;
+    }
+    .gameHeader{
+        width: 100%;
+    }
+} */

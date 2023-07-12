@@ -11,9 +11,15 @@
 <body>
 
     <div class='gameHeader'>
-        <p class='player1'>Player 1:</p>
+        <div class="score">
+            <p id='player1'>Player 1:</p>
+            <p class="score1">0</p>
+        </div>
         <h1>Jeopardy!</h1>
-        <p class='player2'>Player 2:</p>
+        <div class="score">
+            <p id='player2'>Player 2:</p>
+            <p class="score2">0</p>
+        </div>
     </div>
 
         <dialog class= 'dialogOpen'>
@@ -26,7 +32,7 @@
         </dialog>
 
         <dialog class= 'dialogCorrect'>
-            <h2 id='dialogHeaderCorrect'>Correct!</h2>
+            <h2>Correct!</h2>
                 <div class = 'correctAnswer'>
                 <button class ='closeButton1'>Continue...</button>
                 </div>
@@ -35,6 +41,8 @@
         <dialog class= 'dialogWrong'>
             <h2 id='dialogHeaderWrong'>Wrong! Get better!</h2>
                 <div class = 'wrongAnswer'>
+                    <h3 class ="returnCorrectAnswer" ></h3>
+                    <p>Next Players Turn!</p>
                 <button class ='closeButton2'>Continue...</button>
                 </div>
         </dialog>
@@ -44,7 +52,7 @@
             <p>Anime</p>
             <p>Marvel</p>
             <p>Games</p>
-            <p>Music</p>
+            <p>Funny</p>
         </div>
 
         <div class = 'points'>
