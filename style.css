@@ -173,20 +173,122 @@ button:hover{
     color: red;
 }
 
-/* @media only screen and (max-width: 600px){
-    body{
-        width: 100%;
-    }
-    .catContainer{
-        width: 100%;
+@media (max-width: 375px){
+    .catContainer p{
+        font-size: 13px;
+        max-width: max-content;
+        padding: 10px;
     }
     .points{
-        width: 100%;
+        padding: 5px;
+        max-width: max-content;
+        height: 100%;
     }
-    p{
-        font-size:25px;
+    .score{
+        font-size: 25px;
     }
     .gameHeader{
+        width:100%;
+        align-items: center;
+    }
+    .gameHeader h1{
+        font-size: 30px;
+        text-align: center;
+    }
+    .category{
         width: 100%;
     }
-} */
+    .questionsButton{
+        font-size: 10px;
+    }
+    button:hover{
+        background-color: red;
+        font-size: 13px;
+    }
+    .questionsDone{
+        font-size: 10px;
+    }
+    .questionsDone:hover{
+        font-size: 13px;
+    }
+    dialog{
+        width:50%;
+    }
+    .dialogOpen h2{
+        font-size: 20px;
+    }
+    .answerOptions button{
+        max-width: 100%;
+        font-size: 10px;
+        padding: 5px;
+    }
+    .dialogReset{
+        height: 40%;
+    }
+    .arab{
+        height: 40%;
+    }
+    .resetOk{
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 600px){
+    .catContainer p{
+        font-size: 15px;
+        max-width: max-content;
+        padding: 15px;
+        margin: 10px;
+    }
+    .points{
+        padding: 5px;
+        height: 100%;
+    }
+    .score{
+        font-size: 25px;
+    }
+    .gameHeader{
+        width:100%;
+        align-items: center;
+    }
+    .gameHeader h1{
+        font-size: 30px;
+        text-align: center;
+    }
+    .category{
+        width: 100%;
+    }
+    .questionsButton{
+        font-size: 15px;
+    }
+    button:hover{
+        background-color: red;
+        font-size: 20px;
+    }
+    .questionsDone{
+        font-size: 10px;
+    }
+    .questionsDone:hover{
+        font-size: 13px;
+    }
+    dialog{
+        width:50%;
+    }
+    .dialogOpen h2{
+        font-size: 20px;
+    }
+    .answerOptions button{
+        max-width: 100%;
+        font-size: 10px;
+        padding: 5px;
+    }
+    .dialogReset{
+        height: 40%;
+    }
+    .arab{
+        height: 40%;
+    }
+    .resetOk{
+        font-size: 20px;
+    }
+}

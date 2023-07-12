@@ -5,6 +5,7 @@ const cat3 = $('.cat3');
 const cat4 = $('.cat4');
 const cat5 = $('.cat5');
 
+//point buttons being added to html
 points.forEach((el, index) => {
     cat1.append(`<button id='cat1-${index}' class='questionsButton'>${el}</button>`);
     cat2.append(`<button id='cat2-${index}' class='questionsButton'>${el}</button>`);
@@ -23,45 +24,45 @@ let minInt = 0
 let maxInt = 4
 let categoryId
 
+//create function to determine the length of questions to choose from
 function questionsLength(index) {
     return getCategory[index].questions.length;
 }
 
-// Random Int Generator
+// random int generator
 function getRandomInt(minInt, maxInt) {
     minInt = Math.ceil(minInt);
     maxInt = Math.floor(maxInt);
     return Math.floor(Math.random() * (maxInt - minInt)) + minInt;
 }
 
-
+//create a loop 
 questionsButtons.each((index, el) => {
-    // console.log(el)
     $(this).click((e) => {
 
         if (e.target.classList[0] === "questionsButton") {
             const category = e.target.parentNode;
             console.log(e.target.getAttribute('id'))
-
             let questionDone = e.target.getAttribute('id')
-
             $(`#${questionDone}`).attr("class", "questionsDone")
-
             elPoints = e.target.innerText
         
             if(category.classList.contains("cat1")){
                 categoryId = 0;
-                // $('.questionsDone')
             }
+
             if(category.classList.contains("cat2")){
                 categoryId = 1;
             }
+
             if(category.classList.contains("cat3")){
                 categoryId = 2;
             }
+
             if(category.classList.contains("cat4")){
                 categoryId = 3;
             }
+
             if(category.classList.contains("cat5")){
                 categoryId = 4;
             }
@@ -104,8 +105,9 @@ const bruh = new Audio('sounds/bruh.mp3')
 console.log(bruh)
 
 const nokia = new Audio('sounds/nokia_winner.mp3')
+console.log(nokia)
 
-
+//loop to determine which answer was clicked on
 answerOptions.each(() => {
     this.addEventListener('click', (e) => {
 
@@ -117,21 +119,21 @@ answerOptions.each(() => {
     
                 console.log(updatedCategory)
             }
-    
+
             console.log(answerOptions)
-    
+
             console.log(`categoryId ${categoryId}`);
             const responseId = parseInt(e.target.id);
             console.log('responseID',responseId)
             const questionIndex = parseInt(e.target.dataset.questionsatt);
             console.log(`questionIndex ${questionIndex}`);
             const isCorrect = getCategory[categoryId].questions[questionIndex].answers[responseId].isCorrect;
-    
+
             console.log(`isCorrect ${isCorrect}`);
             console.log(`option choice ${responseId}`);
             console.log(`questionIndex ${questionIndex}`);
-    
-            // SCORE
+
+            // score and 'player1, player2' 
             if(isCorrect) {
                 if(count % 2 === 0){
                     score2 += parseInt(elPoints);
@@ -139,6 +141,7 @@ answerOptions.each(() => {
                     console.log(score2Str);
                     score2El.text(score2Str);
                     if (score2 >= 1000) {
+                        nokia.play();
                         console.log('Player 2 Won')
                         $('.resetHeader').text('Player 2 won!')
                         $('.winnerScore').text(`Score: ${score2}`)
@@ -172,7 +175,6 @@ answerOptions.each(() => {
             }
     
             if (isCorrect) {
-                //add funny sound
                 sui.play();
                 dialog.hide();
                 closeButton1.click(() => {
@@ -186,7 +188,6 @@ answerOptions.each(() => {
                 return true;
             }
             else {
-                //add bruh sound
                 bruh.play();
                 dialog.hide();
                 dialogWrong.show()
@@ -201,7 +202,6 @@ answerOptions.each(() => {
                 console.log(false);
                 return false;
             }
-    
         }
     });
 })
