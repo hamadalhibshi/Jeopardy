@@ -97,6 +97,15 @@ let score2 = 0;
 const score1El = $('.score1');
 const score2El = $('.score2');
 
+const sui = new Audio('sounds/sui.mp3')
+console.log(sui)
+
+const bruh = new Audio('sounds/bruh.mp3')
+console.log(bruh)
+
+const nokia = new Audio('sounds/nokia_winner.mp3')
+
+
 answerOptions.each(() => {
     this.addEventListener('click', (e) => {
 
@@ -146,6 +155,8 @@ answerOptions.each(() => {
                     console.log(elPoints);
                     score1El.text(score1Str);
                     if (score1 >= 1000) {
+                        // play winner sound
+                        nokia.play();
                         console.log('Player 1 Win')
                         $('.resetHeader').text('Player 1 won!')
                         $('.winnerScore').text(`Score: ${score1}`)
@@ -161,6 +172,8 @@ answerOptions.each(() => {
             }
     
             if (isCorrect) {
+                //add funny sound
+                sui.play();
                 dialog.hide();
                 closeButton1.click(() => {
                     dialogCorrect.hide();
@@ -173,6 +186,8 @@ answerOptions.each(() => {
                 return true;
             }
             else {
+                //add bruh sound
+                bruh.play();
                 dialog.hide();
                 dialogWrong.show()
     
