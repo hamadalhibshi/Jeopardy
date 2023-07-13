@@ -150,7 +150,7 @@ answerOptions.each(() => {
                         dialogCorrect.show()
                     }
                 }
-    
+
                 else {
                     score1 += parseInt(elPoints);
                     let score1Str = score1.toString();

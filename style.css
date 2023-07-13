@@ -172,6 +172,10 @@ button:hover{
     height: 350px;
 }
 
+.highlightedPlayer{
+    background-color: red;
+}
+
 #playersTurn{
     color: red;
 }
