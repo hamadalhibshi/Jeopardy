@@ -34,3 +34,4 @@ Technologies used:
 Future improvements:
 1. Make the players turn known by adding a class list to the player that changes the css.
 2. Changing the design of the website by making it look more modern.
+3. Keep up with the amount of wrong and right answers showing them at the end of the game with the score.
