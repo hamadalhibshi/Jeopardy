@@ -36,13 +36,13 @@ function getRandomInt(minInt, maxInt) {
     return Math.floor(Math.random() * (maxInt - minInt)) + minInt;
 }
 
-//create a loop 
+//create a loop for added questions to buttons
 questionsButtons.each((index, el) => {
     $(this).click((e) => {
 
         if (e.target.classList[0] === "questionsButton") {
             const category = e.target.parentNode;
-            console.log(e.target.getAttribute('id'))
+            // console.log(e.target.getAttribute('id'))
             let questionDone = e.target.getAttribute('id')
             $(`#${questionDone}`).attr("class", "questionsDone")
             elPoints = e.target.innerText
@@ -69,7 +69,7 @@ questionsButtons.each((index, el) => {
         
             maxInt = questionsLength(categoryId);
             randomInt = getRandomInt(minInt, maxInt);
-    
+
             $('#dialogHeader').text(getCategory[categoryId].questions[randomInt].question);
                 
             for (let i = 0; i < 3; i++) {
@@ -78,7 +78,6 @@ questionsButtons.each((index, el) => {
                 $(`.answer${i+1}`).text(getCategory[categoryId].questions[randomInt].answers[i].answer);           
             }
         dialog.show();
-
         }
         return categoryId, elPoints
 

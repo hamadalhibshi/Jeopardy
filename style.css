@@ -1,6 +1,7 @@
 body{
     font-family:'Montserrat', sans-serif;;
     background-color: blue;
+    overflow: hidden;
 }
 
 .container{
@@ -94,10 +95,11 @@ a{
     padding: 5px;
     gap:10px;
     border-radius: 5px;
+    border: 2px solid black;
 }
 
 .catContainer p{
-    font-size: 25px;
+    font-size: 30px;
     background-color: orange;
     padding: 20px;
     border-radius: 10px;
@@ -114,6 +116,7 @@ a{
     font-size: 20px;
     margin-top:5px;
     height:450px;
+    border: 2px solid black;
 }
 
 button{
@@ -131,7 +134,7 @@ button{
 .questionsDone{
     display: block;
     font-size: 30px;
-    background-color: aqua;
+    background-color: red;
     color: yellow;
     padding: 20px;
     width: 100%;
@@ -141,12 +144,12 @@ button{
 }
 
 .questionsDone:hover {
-    background-color: aqua;
+    background-color: red;
     font-size: 30px;
 }
 
 button:hover{
-    background-color: red;
+    background-color: black;
     font-size: 35px;
 }
 
@@ -266,7 +269,7 @@ button:hover{
         font-size: 20px;
     }
     .questionsDone{
-        font-size: 10px;
+        font-size: 15px;
     }
     .questionsDone:hover{
         font-size: 13px;
