@@ -3,10 +3,10 @@ Jeopardy Game!
 How to play:
 1. Loaded into a home page showing the game logo as well as a button.
 <img src='imgs/screenshots/home.png' style = 'width:80%'>
-2. Click on the 'Start Game' button to enter the actual game itself.
+2. Click on the 'Start Game' button to enter the actual game itself.<br>
 3. Player will be loaded into the game starting as 'Player 1'
 <img src='imgs/screenshots/game_start.png' style = 'width:80%'>
-4. 'Player 1' will have a choice of 5 categories with 5 questions each.
+4. 'Player 1' will have a choice of 5 categories with 5 questions each.<br>
 5. If 'Player 1' gets the answer correct from any category chosen, an audio will play and his turn continues.
 <img src='imgs/screenshots/question_right.png' style = 'width:80%'>
 6. Question will also be removed as well as the button class and will add a new class.
